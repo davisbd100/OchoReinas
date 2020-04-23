@@ -12,15 +12,7 @@ namespace EigthQueens
 
         public Subject()
         {
-            Tablero = new List<List<int>>();
-            List<int> temp = new List<int>()
-            {
-                1,2,3,4,5,6,7,8
-            };
-            Tablero = new List<List<int>>()
-            {
-                temp,temp,temp,temp
-            };
+
         }
 
         public int CalculateAttitudeValue()
@@ -32,41 +24,47 @@ namespace EigthQueens
                 {
                     if (Tablero[i][j] == 1)
                     {
-
-                        //Comprobacion en vertical
-                        for (int k = i+1; k < Tablero.Count; k++)
-                        {
-                            if (Tablero[k][j] == 1)
-                            {
-                                fitnessValue++;
-                            }
-                            //Comprobacion en horizontal
-                            for (int l = j+1; l < Tablero[i].Count; l++)
-                            {
-                                if (Tablero[i][l] == 1)
-                                {
-                                    fitnessValue++;
-                                }
-                            }
-                        }
-
-                        //Comprobacion en diagonal
-                        int m = i + 1;
-                        int n = j + 1;
-                        while (m<4 && n < 4)
-                        {
-                            if (Tablero[m][n] == 1)
-                            {
-                                fitnessValue++;
-                            }
-                            m++;
-                            n++;
-                        }
-
+                        fitnessValue += GetCrossCollision(i, j);
+                        fitnessValue += GetDiagonalCollision(i,j);
                     }
                 }
             }
             return fitnessValue;
+        }
+        int GetCrossCollision(int i, int j)
+        {
+            int collisionTimes = 0;
+            for (int k = i + 1; k < Tablero.Count; k++)
+            {
+                if (Tablero[k][j] == 1)
+                {
+                    collisionTimes++;
+                }
+                for (int l = j + 1; l < Tablero[i].Count; l++)
+                {
+                    if (Tablero[i][l] == 1)
+                    {
+                        collisionTimes++;
+                    }
+                }
+            }
+            return collisionTimes;
+        }
+        int GetDiagonalCollision(int i, int j)
+        {
+            int collisionTimes = 0;
+            int m = i + 1;
+            int n = j + 1;
+            while (m < 8 && n < 8)
+            {
+                if (Tablero[m][n] == 1)
+                {
+                    collisionTimes++;
+                }
+                m++;
+                n++;
+            }
+            return collisionTimes;
         }
     }
 }
