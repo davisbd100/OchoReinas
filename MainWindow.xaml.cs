@@ -23,6 +23,8 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
+            Subject subject = new Subject();
+            Console.WriteLine(subject.CalculateAttitudeValue());
         }
     }
 }
