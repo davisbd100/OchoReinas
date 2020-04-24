@@ -9,6 +9,8 @@ namespace EigthQueens
     public class Subject
     {
         public int[][] Tablero { get; set; }
+        public int FitnessValue { get; set; }
+
 
         public Subject()
         {
@@ -24,35 +26,79 @@ namespace EigthQueens
             Tablero[5] = new int[8];
             Tablero[6] = new int[8];
             Tablero[7] = new int[8];
+
             Console.WriteLine("Longitud del arreglo exterior: " + Tablero.Length + " Longitud del interior: " + Tablero[0].Length);
             FillEmptySpaces(8);
             Console.WriteLine("Longitud del arreglo exterior: " + Tablero.Length + " Longitud del interior: " + Tablero[0].Length);
 
         }
+        public bool SetQueen(int yPos, int xPos, int value)
+        {
+            bool result;
+            if (CheckHorizontalCollision(xPos, yPos, value))
+            {
+                result = false;
+            }
+            else
+            {
+                Tablero[yPos][xPos] = value;
+                result = true;
+            }
+            return result;
+        }
+
 
         public int CalculateAttitudeValue()
         {
             int fitnessValue = 0;
             for (int i = 0; i < Tablero.Length; i++)
             {
-                for (int j = 0; j < Tablero[j].Length; j++)
+                for (int j = 0; j < Tablero[0].Length; j++)
                 {
                     if (Tablero[i][j] == 1)
                     {
-                        fitnessValue += GetHorizontalCollision(i,j);
+                        fitnessValue += GetVerticalCollision(i,j);
                         fitnessValue += GetDiagonalCollision(i,j);
                     }
                 }
             }
+            FitnessValue = fitnessValue;
             return fitnessValue;
         }
-        int GetHorizontalCollision(int i, int j)
+
+        bool CheckHorizontalCollision(int i, int j, int value)
         {
-            int collisionTimes = 0;
+            bool Collision = false;
 
             for (int l = j + 1; l < Tablero[i].Length; l++)
             {
-                if (Tablero[i][l] == 1)
+                if (Tablero[i][l] == value)
+                {
+                    Collision = true;
+                    break;
+                }
+            }
+            if (!Collision)
+            {
+                for (int l = j - 1; l > 0; l--)
+                {
+                    if (Tablero[i][l] == value)
+                    {
+                        Collision = true;
+                        break;
+                    }
+                }
+            }
+            return Collision;
+        }
+
+        int GetVerticalCollision(int i, int j)
+        {
+            int collisionTimes = 0;
+
+            for (int l = i + 1; l < Tablero.Length; l++)
+            {
+                if (Tablero[l][j] == 1)
                 {
                     collisionTimes++;
                 }
