@@ -8,13 +8,17 @@ namespace EigthQueens
 {
     public class Subject
     {
-        public int[][] Tablero { get; set; }
+        public int[][] Board { get; set; }
         public int FitnessValue { get; set; }
 
 
-        public Subject()
+        public Subject(int size)
         {
-
+            Board = new int[size][];
+            for (int i = 0; i < Board.Length; i++)
+            {
+                Board[i] = new int[size];
+            }
         }
 
         public bool SetQueen(int yPos, int xPos)
@@ -26,7 +30,7 @@ namespace EigthQueens
             }
             else
             {
-                Tablero[yPos][xPos] = 1;
+                Board[yPos][xPos] = 1;
                 result = true;
             }
             return result;
@@ -41,7 +45,7 @@ namespace EigthQueens
             }
             else
             {
-                Tablero[yPos][xPos] = value;
+                Board[yPos][xPos] = value;
                 result = true;
             }
             return result;
@@ -51,11 +55,11 @@ namespace EigthQueens
         public int CalculateAttitudeValue()
         {
             int fitnessValue = 0;
-            for (int i = 0; i < Tablero.Length; i++)
+            for (int i = 0; i < Board.Length; i++)
             {
-                for (int j = 0; j < Tablero[0].Length; j++)
+                for (int j = 0; j < Board[0].Length; j++)
                 {
-                    if (Tablero[i][j] == 1)
+                    if (Board[i][j] == 1)
                     {
                         fitnessValue += GetVerticalCollision(i,j);
                         fitnessValue += GetDiagonalCollision(i,j);
@@ -70,9 +74,9 @@ namespace EigthQueens
         {
             bool Collision = false;
 
-            for (int l = j + 1; l < Tablero[i].Length; l++)
+            for (int l = j + 1; l < Board[i].Length; l++)
             {
-                if (Tablero[i][l] == value)
+                if (Board[i][l] == value)
                 {
                     Collision = true;
                     break;
@@ -82,7 +86,7 @@ namespace EigthQueens
             {
                 for (int l = j - 1; l > 0; l--)
                 {
-                    if (Tablero[i][l] == value)
+                    if (Board[i][l] == value)
                     {
                         Collision = true;
                         break;
@@ -96,9 +100,9 @@ namespace EigthQueens
         {
             int collisionTimes = 0;
 
-            for (int l = i + 1; l < Tablero.Length; l++)
+            for (int l = i + 1; l < Board.Length; l++)
             {
-                if (Tablero[l][j] == 1)
+                if (Board[l][j] == 1)
                 {
                     collisionTimes++;
                 }
@@ -107,12 +111,13 @@ namespace EigthQueens
         }
         int GetDiagonalCollision(int i, int j)
         {
+            int size = Board.Length;
             int collisionTimes = 0;
             int m = i + 1;
             int n = j + 1;
-            while (m < 8 && n < 8)
+            while (m < size && n < size)
             {
-                if (Tablero[m][n] == 1)
+                if (Board[m][n] == 1)
                 {
                     collisionTimes++;
                 }
@@ -121,20 +126,21 @@ namespace EigthQueens
             }
             return collisionTimes;
         }
-        void FillEmptySpaces(int size)
+        public void FillEmptySpaces()
         {
+            int size = Board.Length;
             for (int i = 0; i < size; i++)
             {
                 int value = 0;
                 for (int j = 0; j < size; j++)
                 {
                     bool exist = false;
-                    if (Tablero[i][j] == 0)
+                    if (Board[i][j] == 0)
                     {
                         value++;
                         for (int k = j+1; k < size; k++)
                         {
-                            if (Tablero[i][k] == value)
+                            if (Board[i][k] == value)
                             {
                                 value++;
                                 k = j + 1;
@@ -147,7 +153,7 @@ namespace EigthQueens
                         }
                         if (!exist)
                         {
-                            Tablero[i][j] = value;
+                            Board[i][j] = value;
                         }
                     }
                 }
