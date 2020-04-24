@@ -131,20 +131,19 @@ namespace EigthQueens
             int size = Board.Length;
             for (int i = 0; i < size; i++)
             {
-                int value = 0;
+                int value = 1;
                 for (int j = 0; j < size; j++)
                 {
                     bool exist = false;
                     if (Board[i][j] == 0)
                     {
-                        value++;
                         for (int k = j+1; k < size; k++)
                         {
                             if (Board[i][k] == value)
                             {
                                 value++;
                                 k = j + 1;
-                                exist = true;
+                                exist = true;   
                             }
                             else
                             {
@@ -155,6 +154,7 @@ namespace EigthQueens
                         {
                             Board[i][j] = value;
                         }
+                        value++;
                     }
                 }
             }

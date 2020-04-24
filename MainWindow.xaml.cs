@@ -23,9 +23,7 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
-            Population population = new Population(50);
-            population.BoardSize = 8;
-            population.GenerateRandomPopulation();
+            Population population = new Population(50, 8, 100, 0.8, 5);
             Console.WriteLine();
         }
     }

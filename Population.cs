@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Priority_Queue;
 
 namespace EigthQueens
 {
     public class Population
     {
-        public float MutationProbability { get; set; }
+        public double MutationProbability { get; set; }
         public int PopulationSize { get; set; }
         public int Parents { get; set; }
         public int MaxEval { get; set; }
         public int BoardSize { get; set; }
-        public SimplePriorityQueue<Subject> Subjects { get; set; }
+        public List<Subject> Subjects { get; set; }
 
-        public Population(int populationSize)
+        public Population(int populationSize, int boardSize, int maxEval, double mutationProbability, int parents)
         {
             PopulationSize = populationSize;
-            Subjects = new SimplePriorityQueue<Subject>();
+            BoardSize = boardSize;
+            MaxEval = maxEval;
+            MutationProbability = mutationProbability;
+            Parents = parents;
+
+            Subjects = new List<Subject>();
+            GenerateRandomPopulation();
+            SelectRandomParent();
         }
 
-        public void GenerateRandomPopulation()
+        void GenerateRandomPopulation()
         {
             for (int i = 0; i < PopulationSize; i++)
             {
@@ -34,8 +40,16 @@ namespace EigthQueens
                     tempSubject.SetQueen(j, var);
                 }
                 tempSubject.FillEmptySpaces();
-                Subjects.Enqueue(tempSubject, tempSubject.FitnessValue);
+                Subjects.Add(tempSubject);
             }
         }
+        void SelectRandomParent()
+        {
+            for (int i = 0; i < Parents; i++)
+            {
+                List<Subject> var = Subjects.OrderBy(a => a.FitnessValue).ToList();
+            }
+        }
+        
     }
 }
