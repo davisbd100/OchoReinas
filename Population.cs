@@ -45,7 +45,6 @@ namespace EigthQueens
 
         Subject SelectRandomParent()
         {
-            Random random = new Random();
             return Subjects[random.Next(0, PopulationSize)];
         }
 
