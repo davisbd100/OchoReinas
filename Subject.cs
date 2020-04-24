@@ -52,7 +52,7 @@ namespace EigthQueens
         }
 
 
-        public int CalculateAttitudeValue()
+        int CalculateAttitudeValue()
         {
             int fitnessValue = 0;
             for (int i = 0; i < Board.Length; i++)
@@ -158,6 +158,7 @@ namespace EigthQueens
                     }
                 }
             }
+            CalculateAttitudeValue();
         }
     }
 }

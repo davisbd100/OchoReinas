@@ -23,8 +23,10 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
-            Subject subject = new Subject();
-            Console.WriteLine(subject.CalculateAttitudeValue());
+            Population population = new Population(50);
+            population.BoardSize = 8;
+            population.GenerateRandomPopulation();
+            Console.WriteLine();
         }
     }
 }
