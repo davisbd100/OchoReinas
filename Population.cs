@@ -8,12 +8,12 @@ namespace EigthQueens
 {
     public class Population
     {
-        public double MutationProbability { get; set; }
-        public int PopulationSize { get; set; }
-        public int Parents { get; set; }
-        public int MaxEval { get; set; }
-        public int BoardSize { get; set; }
-        public List<Subject> Subjects { get; set; }
+        double MutationProbability { get; set; }
+        int PopulationSize { get; set; }
+        int Parents { get; set; }
+        int MaxEval { get; set; }
+        int BoardSize { get; set; }
+        List<Subject> Subjects { get; set; }
 
         public Population(int populationSize, int boardSize, int maxEval, double mutationProbability, int parents)
         {
@@ -25,7 +25,7 @@ namespace EigthQueens
 
             Subjects = new List<Subject>();
             GenerateRandomPopulation();
-            SelectRandomParent();
+            ChildGeneration();
         }
 
         void GenerateRandomPopulation()
@@ -37,18 +37,28 @@ namespace EigthQueens
                 for (int j = 0; j < BoardSize; j++)
                 {
                     int var = random.Next(0, BoardSize);
-                    tempSubject.SetQueen(j, var);
+                    tempSubject.SetQueen(j, 0);
                 }
                 tempSubject.FillEmptySpaces();
                 Subjects.Add(tempSubject);
+                Console.WriteLine(tempSubject.FitnessValue);
             }
         }
-        void SelectRandomParent()
+
+        Subject SelectRandomParent()
         {
+            Random random = new Random();
+            return Subjects[random.Next(0, PopulationSize)];
+        }
+
+        public void ChildGeneration()
+        {
+            List<Subject> parents = new List<Subject>();
             for (int i = 0; i < Parents; i++)
             {
-                List<Subject> var = Subjects.OrderBy(a => a.FitnessValue).ToList();
+                parents.Add(SelectRandomParent());
             }
+            parents = parents.OrderBy(a => a.FitnessValue).ToList();
         }
         
     }

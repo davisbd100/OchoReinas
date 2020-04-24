@@ -134,6 +134,10 @@ namespace EigthQueens
                 int value = 1;
                 for (int j = 0; j < size; j++)
                 {
+                    if (Board[i][0] == value)
+                    {
+                        value++;
+                    }
                     bool exist = false;
                     if (Board[i][j] == 0)
                     {
