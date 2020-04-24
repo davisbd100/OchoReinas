@@ -14,6 +14,7 @@ namespace EigthQueens
         int MaxEval { get; set; }
         int BoardSize { get; set; }
         List<Subject> Subjects { get; set; }
+        Random random = new Random();
 
         public Population(int populationSize, int boardSize, int maxEval, double mutationProbability, int parents)
         {
@@ -33,15 +34,12 @@ namespace EigthQueens
             for (int i = 0; i < PopulationSize; i++)
             {
                 Subject tempSubject = new Subject(BoardSize);
-                Random random = new Random();
                 for (int j = 0; j < BoardSize; j++)
                 {
-                    int var = random.Next(0, BoardSize);
-                    tempSubject.SetQueen(j, 0);
+                    tempSubject.SetQueen(j, random.Next(0, BoardSize));
                 }
                 tempSubject.FillEmptySpaces();
                 Subjects.Add(tempSubject);
-                Console.WriteLine(tempSubject.FitnessValue);
             }
         }
 
