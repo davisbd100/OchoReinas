@@ -14,28 +14,28 @@ namespace EigthQueens
 
         public Subject()
         {
-            Tablero = new int[8][];
-            Tablero[0] = new int[8];
-            Tablero[0][7] = 5;
-            Tablero[0][6] = 7;
-            Tablero[0][2] = 1;
-            Tablero[1] = new int[8];
-            Tablero[2] = new int[8];
-            Tablero[3] = new int[8];
-            Tablero[4] = new int[8];
-            Tablero[5] = new int[8];
-            Tablero[6] = new int[8];
-            Tablero[7] = new int[8];
-
-            Console.WriteLine("Longitud del arreglo exterior: " + Tablero.Length + " Longitud del interior: " + Tablero[0].Length);
-            FillEmptySpaces(8);
-            Console.WriteLine("Longitud del arreglo exterior: " + Tablero.Length + " Longitud del interior: " + Tablero[0].Length);
 
         }
-        public bool SetQueen(int yPos, int xPos, int value)
+
+        public bool SetQueen(int yPos, int xPos)
         {
             bool result;
-            if (CheckHorizontalCollision(xPos, yPos, value))
+            if (CheckHorizontalCollision(yPos, xPos, 1))
+            {
+                result = false;
+            }
+            else
+            {
+                Tablero[yPos][xPos] = 1;
+                result = true;
+            }
+            return result;
+        }
+
+        public bool SetValue(int yPos, int xPos, int value)
+        {
+            bool result;
+            if (CheckHorizontalCollision(yPos, xPos, value))
             {
                 result = false;
             }
