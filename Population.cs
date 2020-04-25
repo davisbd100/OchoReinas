@@ -26,6 +26,7 @@ namespace EigthQueens
 
             Subjects = new List<Subject>();
             GenerateRandomPopulation();
+            OrderList();
             ChildGeneration();
         }
 
@@ -56,7 +57,45 @@ namespace EigthQueens
                 parents.Add(SelectRandomParent());
             }
             parents = parents.OrderBy(a => a.FitnessValue).ToList();
+
+            Subject childA = CreateChild(parents[0], parents[1]);
+            Subject childB = CreateChild(parents[1], parents[0]);
+
+            ReplaceWorst(childA, childB);
         }
-        
+
+        void ReplaceWorst(Subject childA, Subject childB)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Subjects.Remove(Subjects.Last());
+            }
+            Subjects.Add(childA);
+            Subjects.Add(childB);
+            OrderList();
+        }
+
+        void OrderList()
+        {
+            Subjects = Subjects.OrderBy(a => a.FitnessValue).ToList();
+        }
+
+        Subject CreateChild(Subject parentA, Subject parentB)
+        {
+            Subject child = new Subject(BoardSize);
+            for (int i = 0; i < BoardSize; i++)
+            {
+                if (i< BoardSize / 2)
+                {
+                    child.Board[i] = parentA.Board[i];
+                }
+                else
+                {
+                    child.Board[i] = parentB.Board[i];
+                }
+            }
+            child.CalculateAttitudeValue();
+            return child;
+        }
     }
 }
