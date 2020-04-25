@@ -49,7 +49,8 @@ namespace EigthQueens
             return Subjects[random.Next(0, PopulationSize)];
         }
 
-        public void ChildGeneration()
+
+        void ChildGeneration()
         {
             List<Subject> parents = new List<Subject>();
             for (int i = 0; i < Parents; i++)
@@ -62,6 +63,17 @@ namespace EigthQueens
             Subject childB = CreateChild(parents[1], parents[0]);
 
             ReplaceWorst(childA, childB);
+        }
+
+        Subject Mutate(Subject child)
+        {
+            ChangueValues();
+            return child;
+        }
+
+        void ChangueValues()
+        {
+
         }
 
         void ReplaceWorst(Subject childA, Subject childB)

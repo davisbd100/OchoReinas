@@ -21,34 +21,39 @@ namespace EigthQueens
             }
         }
 
-        public bool SetQueen(int yPos, int xPos)
+        public void SetQueen(int yPos, int xPos)
         {
-            bool result;
-            if (CheckHorizontalCollision(yPos, xPos, 1))
-            {
-                result = false;
-            }
-            else
-            {
-                Board[yPos][xPos] = 1;
-                result = true;
-            }
-            return result;
+            Board[yPos][xPos] = 1;
         }
 
-        public bool SetValue(int yPos, int xPos, int value)
+        public void SetValue(int yPos, int xPos, int value)
         {
-            bool result;
-            if (CheckHorizontalCollision(yPos, xPos, value))
+            bool Collision = false;
+            for (int l = xPos + 1; l < Board[yPos].Length; l++)
             {
-                result = false;
+                if (Board[yPos][l] == value)
+                {
+                    int var = Board[yPos][xPos];
+                    Board[yPos][xPos] = value;
+                    Board[yPos][l] = var;
+                    Collision = true;
+                    break;
+                }
             }
-            else
+            if (!Collision)
             {
-                Board[yPos][xPos] = value;
-                result = true;
+                for (int l = xPos - 1; l > 0; l--)
+                {
+                    if (Board[yPos][l] == value)
+                    {
+                        int var = Board[yPos][xPos];
+                        Board[yPos][xPos] = value;
+                        Board[yPos][l] = var;
+                        Collision = true;
+                        break;
+                    }
+                }
             }
-            return result;
         }
 
 
@@ -68,32 +73,6 @@ namespace EigthQueens
             }
             FitnessValue = fitnessValue;
             return fitnessValue;
-        }
-
-        bool CheckHorizontalCollision(int i, int j, int value)
-        {
-            bool Collision = false;
-
-            for (int l = j + 1; l < Board[i].Length; l++)
-            {
-                if (Board[i][l] == value)
-                {
-                    Collision = true;
-                    break;
-                }
-            }
-            if (!Collision)
-            {
-                for (int l = j - 1; l > 0; l--)
-                {
-                    if (Board[i][l] == value)
-                    {
-                        Collision = true;
-                        break;
-                    }
-                }
-            }
-            return Collision;
         }
 
         int GetVerticalCollision(int i, int j)
