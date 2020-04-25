@@ -23,8 +23,10 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
-            Population population = new Population(50, 8, 100, 0.8, 5);
+            Population population = new Population(50, 8, 10000, 0.8, 5);
             Console.WriteLine();
+            population.StartEvolutionProcess();
+            Console.WriteLine(population.Generations.Last().ToString());
         }
     }
 }

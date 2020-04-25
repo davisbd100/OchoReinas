@@ -13,8 +13,10 @@ namespace EigthQueens
         int Parents { get; set; }
         int MaxEval { get; set; }
         int BoardSize { get; set; }
+        public int CurrentEvaluation { get; set; }
         List<Subject> Subjects { get; set; }
         Random random = new Random();
+        public List<GenerationData> Generations { get; set; }
 
         public Population(int populationSize, int boardSize, int maxEval, double mutationProbability, int parents)
         {
@@ -25,9 +27,9 @@ namespace EigthQueens
             Parents = parents;
 
             Subjects = new List<Subject>();
+            Generations = new List<GenerationData>();
             GenerateRandomPopulation();
             OrderList();
-            ChildGeneration();
         }
 
         void GenerateRandomPopulation()
@@ -128,7 +130,27 @@ namespace EigthQueens
                 }
             }
             child.CalculateAttitudeValue();
+            CurrentEvaluation++;
             return child;
+        }
+
+        public bool StartEvolutionProcess()
+        {
+            bool result = false;
+            for (int i = 0; i < MaxEval; i++)
+            {
+                GenerationData generation = new GenerationData(i + 1, Subjects);
+                Generations.Add(generation);
+
+                if (Subjects.First().FitnessValue == 0)
+                {
+                    result = true;
+                    break;
+                }
+
+                ChildGeneration();
+            }
+            return result;
         }
     }
 }

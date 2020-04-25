@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GenerationData.cs" />
     <Compile Include="Population.cs" />
     <Compile Include="Subject.cs" />
     <Page Include="MainWindow.xaml">
