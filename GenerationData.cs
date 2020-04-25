@@ -80,10 +80,10 @@ namespace EigthQueens
             return result;
         }
 
-
+        override
         public String ToString()
         {
-            return ("Numero de Generacion: " + GenerationNumber + ", Media: " + Media + ", Mediana: " + Median +
+            return ("Numero de Generacion: " + GenerationNumber + ", Media: " + Media + ", Mediana: " + Median + ", Desviacion Estandar: " + StandardDeviation +
                 ", Valor de aptitud del mejor: " + BetterSubject.FitnessValue + ", Valor de aptitud del peor: " + WorstSubject.FitnessValue);
         }
 
