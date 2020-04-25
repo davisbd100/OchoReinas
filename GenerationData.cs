@@ -13,12 +13,14 @@ namespace EigthQueens
         public Subject WorstSubject { get; set; }
         public double Media { get; set; }
         public double Median { get; set; }
+        public double StandardDeviation { get; set; }
 
         public GenerationData(int generationNumber, List<Subject> generationList)
         {
             GenerationNumber = generationNumber;
             Media = CalculateMedia(generationList);
             Median = CalculateMedian(generationList);
+            StandardDeviation = CalculateStandardDeviation(generationList);
             BetterSubject = generationList.First();
             WorstSubject = generationList.Last();
         }
@@ -51,6 +53,21 @@ namespace EigthQueens
             }
             return result;
         }
+
+        double CalculateStandardDeviation(List<Subject> generationList)
+        {
+            double result;
+            double sumTotal = 0;
+            foreach (var item in generationList)
+            {
+                double value = (item.FitnessValue - Media);
+                value = value * value;
+                sumTotal += value;
+            }
+            result = sumTotal / generationList.Count();
+            return result;
+        }
+
         bool IsPar(double number)
         {
             bool result = false;
