@@ -62,18 +62,39 @@ namespace EigthQueens
             Subject childA = CreateChild(parents[0], parents[1]);
             Subject childB = CreateChild(parents[1], parents[0]);
 
+            if (random.NextDouble() <= MutationProbability)
+            {
+                childA = Mutate(childA);
+            }
+
+            if (random.NextDouble() <= MutationProbability)
+            {
+                childB = Mutate(childB);
+            }
+
             ReplaceWorst(childA, childB);
         }
 
         Subject Mutate(Subject child)
         {
-            ChangueValues();
+            int xPosA = random.Next(0, BoardSize),
+                yPosA = random.Next(0, BoardSize),
+                xPosB = random.Next(0, BoardSize),
+                yPosB = random.Next(0, BoardSize);
+            while (yPosA == yPosB)
+            {
+                xPosA = random.Next(0, BoardSize);
+                yPosA = random.Next(0, BoardSize);
+                xPosB = random.Next(0, BoardSize);
+                yPosB = random.Next(0, BoardSize);
+            }
+            int valueA = child.Board[yPosA][xPosA];
+            int valueB = child.Board[yPosB][xPosB];
+
+            child.SetValue(yPosA, xPosA, valueB);
+            child.SetValue(yPosB, xPosB, valueA);
+
             return child;
-        }
-
-        void ChangueValues()
-        {
-
         }
 
         void ReplaceWorst(Subject childA, Subject childB)
