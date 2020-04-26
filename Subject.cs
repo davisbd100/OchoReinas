@@ -103,6 +103,17 @@ namespace EigthQueens
                 m++;
                 n++;
             }
+            m = i - 1;
+            n = j + 1;
+            while (m > -1 && n < size)
+            {
+                if (Board[m][n] == 1)
+                {
+                    collisionTimes++;
+                }
+                m--;
+                n++;
+            }
             return collisionTimes;
         }
         public void FillEmptySpaces()

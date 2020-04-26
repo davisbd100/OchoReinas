@@ -36,6 +36,41 @@ namespace EigthQueens
             population = new Population(int.Parse(tbPopulation.Text), int.Parse(tbBoard.Text), int.Parse(tbEvaluation.Text), double.Parse(tbMutation.Text), int.Parse(tbParents.Text));
             population.StartEvolutionProcess();
             FillGridGenerations();
+            if (tbBoard.Text == "8")
+            {
+                SetBoard();
+            }
+        }
+        void SetBoard()
+        {
+            Subject FirstSubject = population.ObtainBestSubject();
+            foreach (Image item in gridBoard.Children)
+            {
+                item.Source = null;
+            }
+
+            int contImage = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (FirstSubject.Board[j][i] == 1)
+                    {
+                        int contImage2 = 0;
+                        foreach (Image item in gridBoard.Children)
+                        {
+                            if (contImage2 == contImage)
+                            {
+                                item.Source = new BitmapImage(new Uri("Resources/Queen.png", UriKind.Relative));
+                                break;
+                            }
+                            contImage2++;
+                        }
+                    }
+                    contImage++;
+                }
+
+            }
         }
     }
 }

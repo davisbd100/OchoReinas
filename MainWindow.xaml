@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="VentanaPrincipal" Height="450" Width="1100" ResizeMode="NoResize">
     <Grid>
+        <Image Margin="10,78,763.6,22" Source="Resources/Board.png" Stretch="Fill"/>
+
         <Label x:Name="lbPopulation" Content="Tamaño de poblacion:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <TextBox x:Name="tbPopulation" HorizontalAlignment="Left" Height="23" Margin="141,10,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="37"/>
         <Label x:Name="lbBoard" Content="Tamaño de tablero:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="183,10,0,0"/>
@@ -20,6 +22,73 @@
         <DataGrid x:Name="gridGenerations" HorizontalAlignment="Left" Height="332" Margin="579,78,0,0" VerticalAlignment="Top" Width="505" IsReadOnly="True"/>
         <TextBlock x:Name="tblGenerations" HorizontalAlignment="Left" Margin="755,41,0,0" TextWrapping="Wrap" Text="Generaciones" VerticalAlignment="Top" Height="32" Width="156" FontSize="24"/>
         <Button x:Name="btEvolution" Content="Iniciar Evolución" HorizontalAlignment="Left" Margin="975,10,0,0" VerticalAlignment="Top" Width="109" Height="23" Click="btEvolution_Click"/>
+        <Grid x:Name="gridBoard" HorizontalAlignment="Left" Height="320" Margin="10,78,0,0" VerticalAlignment="Top" Width="320">
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,0,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,40,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,80,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,120,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,160,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,200,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,240,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="0,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="40,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="80,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="120,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="160,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="200,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="240,280,0,0"/>
+            <Image HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40" Margin="280,280,0,0"/>
+        </Grid>
+        <TextBlock x:Name="tblBoard" HorizontalAlignment="Left" Margin="18,41,0,0" TextWrapping="Wrap" Text="Tablero del mas apto (Solo de tamaño 8): " VerticalAlignment="Top" Height="32" Width="319" FontSize="16"/>
 
     </Grid>
 </Window>

@@ -133,6 +133,11 @@ namespace EigthQueens
             CurrentEvaluation++;
             return child;
         }
+        public Subject ObtainBestSubject()
+        {
+            Subject subject = Generations.Last().BetterSubject;
+            return subject;
+        }
 
         public bool StartEvolutionProcess()
         {
