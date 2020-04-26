@@ -137,10 +137,12 @@ namespace EigthQueens
         public bool StartEvolutionProcess()
         {
             bool result = false;
+            int generationCont = 1;
             for (int i = CurrentEvaluation; i < MaxEval;)
             {
-                GenerationData generation = new GenerationData(i + 1, Subjects);
+                GenerationData generation = new GenerationData(generationCont, Subjects);
                 Generations.Add(generation);
+                generationCont++;
 
                 if (Subjects.First().FitnessValue == 0)
                 {

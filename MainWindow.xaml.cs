@@ -24,15 +24,18 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
-            population = new Population(50, 8, 10000, 0.8, 5);
-            Console.WriteLine();
-            population.StartEvolutionProcess();
-            FillGridGenerations();
-            Console.WriteLine(population.Generations.Last().ToString());
         }
         void FillGridGenerations()
         {
+            gridGenerations.ItemsSource = null;
             gridGenerations.ItemsSource = population.Generations;
+        }
+
+        private void btEvolution_Click(object sender, RoutedEventArgs e)
+        {
+            population = new Population(int.Parse(tbPopulation.Text), int.Parse(tbBoard.Text), int.Parse(tbEvaluation.Text), double.Parse(tbMutation.Text), int.Parse(tbParents.Text));
+            population.StartEvolutionProcess();
+            FillGridGenerations();
         }
     }
 }
