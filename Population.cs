@@ -137,7 +137,7 @@ namespace EigthQueens
         public bool StartEvolutionProcess()
         {
             bool result = false;
-            for (int i = 0; i < MaxEval; i++)
+            for (int i = CurrentEvaluation; i < MaxEval;)
             {
                 GenerationData generation = new GenerationData(i + 1, Subjects);
                 Generations.Add(generation);
@@ -147,7 +147,7 @@ namespace EigthQueens
                     result = true;
                     break;
                 }
-
+                i = CurrentEvaluation;
                 ChildGeneration();
             }
             return result;

@@ -20,13 +20,19 @@ namespace EigthQueens
     /// </summary>
     public partial class MainWindow : Window
     {
+        Population population;
         public MainWindow()
         {
             InitializeComponent();
-            Population population = new Population(50, 8, 10000, 0.8, 5);
+            population = new Population(50, 8, 10000, 0.8, 5);
             Console.WriteLine();
             population.StartEvolutionProcess();
+            FillGridGenerations();
             Console.WriteLine(population.Generations.Last().ToString());
+        }
+        void FillGridGenerations()
+        {
+            gridGenerations.ItemsSource = population.Generations;
         }
     }
 }

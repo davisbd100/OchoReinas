@@ -143,5 +143,11 @@ namespace EigthQueens
             }
             CalculateAttitudeValue();
         }
+
+        override
+        public String ToString()
+        {
+            return FitnessValue.ToString();
+        }
     }
 }
