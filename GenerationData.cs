@@ -20,10 +20,11 @@ namespace EigthQueens
             GenerationNumber = generationNumber;
             Media = CalculateMedia(generationList);
             Median = CalculateMedian(generationList);
-            BetterSubject = generationList.First();
-            WorstSubject = generationList.Last();
+            BetterSubject = generationList.Last();
+            WorstSubject = generationList.First();
             StandardDeviation = CalculateStandardDeviation(generationList);
         }
+
 
         double CalculateMedia(List<Subject> generationList)
         {
