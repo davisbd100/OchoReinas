@@ -15,6 +15,8 @@ El problema de las ocho reinas es un pasatiempo que consiste en poner ocho reina
 
 ## Definicion de forma de implementacion a tener en cuenta
 
+|                          |                                                     |   |   |   |
+|--------------------------|-----------------------------------------------------|---|---|---|
 | Representación           | Permutaciones                                       |   |   |   |
 | Tamaño de la población   | 100                                                 |   |   |   |
 | Inicialización           | Aleatoria                                           |   |   |   |
