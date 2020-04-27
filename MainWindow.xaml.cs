@@ -24,6 +24,12 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
+            Subject subject = new Subject(4);
+            subject.Board = new int[4]
+            {
+                1,2,3,4
+            };
+            subject.CalculateFitnessValue();
         }
         void FillGridGenerations()
         {
@@ -54,7 +60,7 @@ namespace EigthQueens
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    if (FirstSubject.Board[j][i] == 1)
+                    if (FirstSubject.Board[i] == 1)
                     {
                         int contImage2 = 0;
                         foreach (Image item in gridBoard.Children)

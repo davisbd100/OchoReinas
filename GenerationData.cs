@@ -20,9 +20,9 @@ namespace EigthQueens
             GenerationNumber = generationNumber;
             Media = CalculateMedia(generationList);
             Median = CalculateMedian(generationList);
-            StandardDeviation = CalculateStandardDeviation(generationList);
             BetterSubject = generationList.First();
             WorstSubject = generationList.Last();
+            StandardDeviation = CalculateStandardDeviation(generationList);
         }
 
         double CalculateMedia(List<Subject> generationList)
@@ -54,14 +54,15 @@ namespace EigthQueens
             return result;
         }
 
-        double CalculateStandardDeviation(List<Subject> generationList)
+        public double CalculateStandardDeviation(List<Subject> generationList)
         {
             double result;
             double sumTotal = 0;
+            double value;
             foreach (var item in generationList)
             {
-                double value = (item.FitnessValue - Media);
-                value = value * value;
+                value = (item.FitnessValue - Media);
+                value *= value;
                 sumTotal += value;
             }
             result = sumTotal / generationList.Count();
