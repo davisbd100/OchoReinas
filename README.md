@@ -5,7 +5,7 @@ Hecho en *C#* utilizando *WPF* con el framework *.NET 4.7.2*
 # Funcionamiento
 1. La opcion 'Tamaño de poblacion' define la poblacion inicial que se generara.
 1. La opcion 'Tamaño del tablero' define el tamaño del "tablero" que se ocupara, asi como las reinas que tendra el tablero, dado a la naturaleza del algoritmo, estos valores deben ser los mismos.
-1. La opcion 'Evaluaciones maximas' define el numero de evaluaciones maximas que tomara el algoritmo, tomando como evaluacion el calculo de aptitud de un nuevo individuo sin tomar en cuenta todas aquellas de la generacion inicial.
+1. La opcion 'Evaluaciones maximas' define el numero de evaluaciones maximas que tomara el algoritmo, tomando como evaluacion el calculo de aptitud de un nuevo individuo tomando tambien en cuenta todas aquellas de la generacion inicial.
 1. La opcion 'Probabilidad de mutación' define la probabilidad de mutación que se tendra cada vez que se genere un nuevo hijo. Esta mutacion se realiza intercambiando dos valores.
 1. La opcion 'Numero de padres para selecciona' define el numero de padres que se seleccionaran aleatoriamente para hacer la comparacion de los mas aptos para cruza. Los padres siempre seran dos y generaran siempre dos hijos.
 
