@@ -42,6 +42,7 @@ namespace EigthQueens
                 Subjects.Add(tempSubject);
             }
             OrderList();
+            CurrentEvaluation = PopulationSize;
         }
 
         void OrderList()

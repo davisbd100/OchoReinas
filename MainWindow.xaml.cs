@@ -29,6 +29,7 @@ namespace EigthQueens
         {
             population = new Population(int.Parse(tbPopulation.Text), int.Parse(tbBoard.Text), int.Parse(tbEvaluation.Text), double.Parse(tbMutation.Text), int.Parse(tbParents.Text));
             population.StartEvolutionProcess();
+            Console.WriteLine(population.CurrentEvaluation);
             FillGridGenerations();
             SetCharts();
             if (tbBoard.Text == "8")
