@@ -159,7 +159,7 @@ namespace EigthQueens
             {
                 GenerationData generation = new GenerationData(generationCont + 1, Subjects);
                 Generations.Add(generation);
-
+                generationCont++;
                 if (generation.BetterSubject.FitnessValue == MaxValue)
                 {
                     Console.WriteLine("Found");

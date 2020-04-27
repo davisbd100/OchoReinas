@@ -24,12 +24,6 @@ namespace EigthQueens
         public MainWindow()
         {
             InitializeComponent();
-            Subject subject = new Subject(4);
-            subject.Board = new int[4]
-            {
-                1,2,3,4
-            };
-            subject.CalculateFitnessValue();
         }
         void FillGridGenerations()
         {
@@ -58,24 +52,10 @@ namespace EigthQueens
             int contImage = 0;
             for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (FirstSubject.Board[i] == 1)
-                    {
-                        int contImage2 = 0;
-                        foreach (Image item in gridBoard.Children)
-                        {
-                            if (contImage2 == contImage)
-                            {
-                                item.Source = new BitmapImage(new Uri("Resources/Queen.png", UriKind.Relative));
-                                break;
-                            }
-                            contImage2++;
-                        }
-                    }
-                    contImage++;
-                }
-
+                int row = (i * 8);
+                int value = FirstSubject.Board[i];
+                List<Image> images = gridBoard.Children.OfType<Image>().ToList();
+                images[row + value].Source = new BitmapImage(new Uri("Resources/Queen.png", UriKind.RelativeOrAbsolute));
             }
         }
     }

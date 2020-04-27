@@ -39,7 +39,12 @@ namespace EigthQueens
         override
         public String ToString()
         {
-            return FitnessValue.ToString();
+            String array = "";
+            for (int i = 0; i < Board.Length; i++)
+            {
+                array += "|" + Board[i];
+            }
+            return FitnessValue.ToString() + " : " + array;
         }
     }
 }
