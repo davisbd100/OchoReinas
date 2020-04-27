@@ -1,4 +1,4 @@
-# Procesamiento Asincrono
+# Problema de las ocho reinas
 Hecho en *C#* utilizando *WPF* con el framework *.NET 4.7.2*
 
 
