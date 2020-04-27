@@ -15,15 +15,14 @@ El problema de las ocho reinas es un pasatiempo que consiste en poner ocho reina
 
 ## Definicion de forma de implementacion a tener en cuenta
 
-|                          |                                                     |   |   |   |
-|--------------------------|-----------------------------------------------------|---|---|---|
-| Representación           | Permutaciones                                       |   |   |   |
-| Tamaño de la población   | 100                                                 |   |   |   |
-| Inicialización           | Aleatoria                                           |   |   |   |
-| Selección de padres      | Mejores de 5 aleatorios                             |   |   |   |
-| Numero de descendientes  | 2                                                   |   |   |   |
-| Cruza                    | Cortar y llenar cruzado                             |   |   |   |
-| Probabilidad de mutacion | Intercambio                                         |   |   |   |
-| Mutación                 | Intercambio                                         |   |   |   |
-| Reemplazo                | Reemplazar el peor                                  |   |   |   |
-| Condición de Paro        | Encontrar la solución o llegar a 10000 evaluaciones |   |   |   |
+|--------------------------|-----------------------------------------------------|
+| Representación           | Permutaciones                                       |
+| Tamaño de la población   | 100                                                 |
+| Inicialización           | Aleatoria                                           |
+| Selección de padres      | Mejores de 5 aleatorios                             |
+| Numero de descendientes  | 2                                                   |
+| Cruza                    | Cortar y llenar cruzado                             |
+| Probabilidad de mutacion | Intercambio                                         |
+| Mutación                 | Intercambio                                         |
+| Reemplazo                | Reemplazar el peor                                  |
+| Condición de Paro        | Encontrar la solución o llegar a 10000 evaluaciones |
